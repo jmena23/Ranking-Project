@@ -76,7 +76,7 @@ for i in range(len(memes)):
     }
     pullrq.append(pr)
 
-#Cargo en Mongo los documentos
+#Cargo en Mongo los documentos de la colección de las pull request
 client2 = MongoClient("mongodb://localhost/")
 mydb2 = client2["ranking"]
 mycol2 = mydb2["pullrequest"]

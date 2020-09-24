@@ -34,7 +34,7 @@ alumnos = []
 fin = []
 for i in pulls:
     for j in i: 
-        alumnos.append(j['user']['login'])
+        alumnos.append({"usuario_github" : j['user']['login']})
 for i in alumnos:
     if i not in fin:
         fin.append(i)

@@ -13,7 +13,7 @@ def insert_alumno(studentname):
     else:
         return {
                 "status": "not found",
-                "message": f"User with name {studentname} already exist"
+                "message": f"User with name {studentname} already exists"
             }, 404
 
 

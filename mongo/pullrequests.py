@@ -1,5 +1,6 @@
 import requests
 import math
+import re
 from pymongo import MongoClient
 import os 
 from dotenv import load_dotenv
@@ -27,6 +28,7 @@ def get_gh_v3(endpoint, apiKey=os.getenv("GITHUB_APIKEY"), query_params={}):
 
 # Obtengo todas las pulls de la API
 number = get_gh_v3("/repos/ironhack-datalabs/datamad0820/pulls", apiKey=os.getenv("GITHUB_APIKEY"), query_params={'state': 'all', 'page' : 1, "per_page":100})[0]['number']
+
 pulls = []
 for i in range(1, math.ceil(number/100) + 1):
     pulls.append(get_gh_v3("/repos/ironhack-datalabs/datamad0820/pulls",query_params={'state': 'all', 'page' : i, "per_page":100}))
@@ -43,16 +45,83 @@ for i in comments:
     data = get_gh_v3(i.split(".com")[1], apiKey=os.getenv("GITHUB_APIKEY"), query_params={'page' : 1})
     com.append(data)
 
+# Obtengo las url de los commits
+commits = []
+for i in pulls:
+    for j in i: 
+        commits.append(j['commits_url'])
+
+# Obtengo los commits de la API con las URL del paso anterior
+comit = []
+for i in commits:
+    data = get_gh_v3(i.split(".com")[1], apiKey=os.getenv("GITHUB_APIKEY"), query_params={'page' : 1})
+    comit.append(data)
+
+#Obtengo la fecha del último commit de cada pull request
+lastcom = []
+for i in comit:
+    lastcom.append(i[-1]['commit']['author']['date'])
+
 #Obtengo los títulos de las pull request
-titulos = []
+titulo = []
 for i in pulls:
     for j in i:
         if "]" in j['title']: 
             nombre = ((j['title']).split("]")[0]).strip()
             nombre = (nombre + "]").replace(" ", "-")
-            titulos.append(nombre)
+            titulo.append(nombre)
         else:
-            titulos.append(" ")
+            titulo.append(" ")
+titulos = []
+for i in titulo:
+    if "]" in i and i[0] != "[":
+        titulos.append("[" + i.lower())
+    else:
+        titulos.append(i.lower())
+
+#Obtengo los alumnos de cada pull request(Creador, con @, join)
+autor = ["@" + j['user']['login'] for i in pulls for j in i]
+
+joins = []
+for i in com:
+    if i == [] or 'join' not in i[0]["body"] or i[0]["user"]["login"] in ['ferrero-felipe', 'agalvezcorell', 'WHYTEWYLL']:
+        joins.append("Unknown")
+    else:
+        joins.append("@" + i[0]["user"]["login"])
+
+al = []
+for i in range(len(joins)):
+    if joins[i] != 'Unknown' and joins[i] not in al:
+        al.append([autor[i],joins[i]])
+    elif joins[i] == 'Unknown':
+        al.append([autor[i]])
+
+intrusos = []
+for i in pulls:
+    for j in i:
+        res = re.findall(r'@[\w-]+', j["body"])
+        if res:    
+            intrusos.append(res)
+        else:
+            intrusos.append("Unknown")
+
+alu = []
+for i in range(len(al)):
+    if intrusos[i] != 'Unknown':
+        alu.append(intrusos[i] + al[i])
+    elif intrusos[i] == 'Unknown':
+        alu.append(al[i])
+
+duplicados = []
+for i in alu:
+    duplicados.append(list(set(i)))
+
+definitivo = []
+for i in range(len(duplicados)):
+    inter = []
+    for j in duplicados[i]:
+        inter.append(j[1:])
+    definitivo.append(inter)
 
 #Obtengo los memes del body de los comments
 memes = []
@@ -67,20 +136,18 @@ pullrq = []
 for i in range(len(memes)):
     pr = {
         "numero" : [j['number'] for i in pulls for j in i][i],
-        "prq": titulos[i],
-        "alumni" :{f"0":[j['user']['login'] for i in pulls for j in i][i]},
+        "lab": titulos[i],
+        "alumnos" :definitivo[i],
         "estado" : [j['state'] for i in pulls for j in i][i],
-        "update": [j['updated_at'] for i in pulls for j in i][i],
-        "cierre": [j["closed_at"] for i in pulls for j in i][i],
-        "meme": {"0": memes[i]}
+        "last_commit_time": lastcom[i],
+        "pr_close_time": [j["closed_at"] for i in pulls for j in i][i],
+        "meme": memes[i]
     }
     pullrq.append(pr)
 
 #Cargo en Mongo los documentos de la colección de las pull request
 client2 = MongoClient("mongodb://localhost/")
 mydb2 = client2["ranking"]
-mycol2 = mydb2["pullrequest"]
+mycol2 = mydb2["pulls"]
 
 mycol2.insert_many(pullrq)
-
-##FALTA INCLUIR LOS QUE TIENEN MAS DE UN MEME O MAS DE UNA ALUMNO

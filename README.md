@@ -1,6 +1,8 @@
 # Ranking-Project
 W6 Project - The Ranking
 
+![dev](https://user-images.githubusercontent.com/61025562/94283464-f0266e00-ff48-11ea-9031-ce1741db7fbb.png)
+
 # Objetivo
 
 Poner en práctica todo lo aprendido en el bootcamp de Data de Ironhack hasta el momento. Para ello, llevaremos a cabo lo siguiente:

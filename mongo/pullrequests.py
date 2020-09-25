@@ -95,8 +95,10 @@ for i in titulos:
         titles.append('[lab-errhand-listcomp]')
     elif "generat" in i:
         titles.append('[lab-generator-functions]')
-    elif "mysql" in i:
+    elif "select" in i:
         titles.append('[lab-mysql-select]')
+    elif "mysql" in i and "select" not in i:
+        titles.append('[lab-mysql]')
     elif "parsing" in i:
         titles.append('[lab-parsing-api]')
     elif "probability" in i:

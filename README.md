@@ -103,3 +103,15 @@ Poner en práctica todo lo aprendido en el bootcamp de Data de Ironhack hasta el
 - https://api.mongodb.com/python/current/api/pymongo/collection.html#pymongo.collection.Collection.insert_one
 
 - https://api.mongodb.com/python/current/tutorial.html
+
+Cloud:
+
+- https://docs.docker.com/engine/reference/builder/
+
+- https://runnable.com/docker/python/dockerize-your-python-application
+
+- https://devcenter.heroku.com/articles/container-registry-and-runtime
+
+- https://devcenter.heroku.com/categories/deploying-with-docker
+
+- https://www.mongodb.com/cloud/atlas

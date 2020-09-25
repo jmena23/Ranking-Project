@@ -79,6 +79,39 @@ for i in titulo:
     else:
         titulos.append(i.lower())
 
+#NO ME COGÍA BIEN LOS TÍTULOS CON UN DICCIONARIO Y TUVE QUE RECURRIR A LOS ELIF INFINITOS
+#CUANDO TENGA MÁS TIEMPO LO CORREGIRÉ CON EL DICCIONARIO
+
+#errores = {"mongo": '[lab-advance-querying-mongo]', "errhand": '[lab-errhand-listcomp]', "generat": '[lab-generator-functions]', 
+#               "mysql":'[lab-mysql-select]', "parsing": '[lab-parsing-api]', "probability": '[lab-probability-distribution]', 
+#               "resolving": '[lab-resolving-git-conflicts]', "storytelling": '[storytelling-project]', "tuple": '[lab-tuple-set-dict]', 
+#               "web": '[lab-web-scraping]'}
+
+titles = []
+for i in titulos:
+    if "mongo" in i:
+        titles.append('[lab-advance-querying-mongo]')
+    elif "errhand" in i:
+        titles.append('[lab-errhand-listcomp]')
+    elif "generat" in i:
+        titles.append('[lab-generator-functions]')
+    elif "mysql" in i:
+        titles.append('[lab-mysql-select]')
+    elif "parsing" in i:
+        titles.append('[lab-parsing-api]')
+    elif "probability" in i:
+        titles.append('[lab-probability-distribution]')
+    elif "resolving" in i:
+        titles.append('[lab-resolving-git-conflicts]')
+    elif "storytelling" in i:
+        titles.append('[storytelling-project]')
+    elif "tuple" in i:
+        titles.append('[lab-tuple-set-dict]')
+    elif "web" in i:
+        titles.append('[lab-web-scraping]')
+    else:
+        titles.append(i)
+
 #Obtengo los alumnos de cada pull request(Creador, con @, join)
 autor = ["@" + j['user']['login'] for i in pulls for j in i]
 
@@ -136,7 +169,7 @@ pullrq = []
 for i in range(len(memes)):
     pr = {
         "numero" : [j['number'] for i in pulls for j in i][i],
-        "lab": titulos[i],
+        "lab": titles[i],
         "alumnos" :definitivo[i],
         "estado" : [j['state'] for i in pulls for j in i][i],
         "last_commit_time": lastcom[i],

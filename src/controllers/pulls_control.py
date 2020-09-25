@@ -88,9 +88,9 @@ def rankingmeme():
                 if j['meme'] != "Unknown":
                     m.append(j["meme"])
             ordenados = sorted(Counter(m).items(), key=lambda x:x[1], reverse = True)
-            h = dict()
+            h = []
             for k in ordenados:
-                h[k[0]]= k[1]
+                h.append(k[0]+ ":" + str(k[1]))
             reto = {"lab": a[i],"ranking": h}
             ret.append(reto)
     rank = {}

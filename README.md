@@ -23,28 +23,55 @@ Poner en práctica todo lo aprendido en el bootcamp de Data de Ironhack hasta el
         - (GET) /student/create/<studentname>
 
             Propósito: Crear un estudiante y guardarlo en la base de datos
+
             Parámetro: nombre del estudiante en Github
+
             Returns: student_id
 
         - (GET) /student/all
 
             Propósito: Listar a los estudiantes en la base de datos
+
             Returns: Un array con los estudiantes
 
     - L2. Lab endpoints
 
         - (POST) /lab/create
+
             Propósito: Crear un lab para analizar.
+
             Params: Prefijo del lab a analizar. Ejemplo: [lab-scavengers]
+
             Returns: lab_id
 
         - (GET) /lab/<lab_id>/search
+
             Propósito: Realizar el análisis de un lab concreto
+
             Parámetro: lab_id
+
             Returns: Ver Lab analysis section
 
         - (GET) /lab/memeranking
+
             Propósito: Ranking de los memes más usados en datamad0820 dividido por labs
-            
+
         - (GET) /lab/<lab_id>/meme
+
             Propósito: Obtener un meme random del lab que indicamos en la url.
+
+    - LAB ANALYSIS SECTION
+
+        Por cada lab analizar lo siguiente:
+
+            Número de PR abiertas
+
+            Número de PR cerradas
+
+            Porcentaje (cerradas vs abiertas)
+
+            Lista de estudiantes que no enviaron la PR
+
+            Lista de memes únicos en el lab
+
+            Tiempo medio de cierra del lab: (fecha de cierre-último commit)

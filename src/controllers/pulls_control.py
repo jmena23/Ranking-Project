@@ -2,16 +2,31 @@ from src.app import app
 from flask import request, Response
 from src.helpers.json_response import asJsonResponse
 from src.database import db
+from flask import request, Response
 import random
 import datetime
 import numpy as np
 from collections import Counter
 
 @app.route('/lab/create')
-def createlab(lab_prefix):
-        lab = {"usuario_github": lab_prefix}
-        l = db["pulls"].insert_one(lab)
-        return {"id_": str(l.inserted_id)}
+@asJsonResponse
+def createlab():
+    lab_name = request.args.get("lab")
+    if not lab_name:
+        return {
+            "status": "error",
+            "message": "Empty lab name, please specify one"
+        }, 400
+
+    lab_choice = db["pulls"].find_one({"lab": lab_name}, {"lab":1})
+
+    if not lab_choice:
+        return {
+            "status": "not found",
+            "message": f"No lab found with name {lab_name} in database"
+        }, 404
+
+    return {"lab_name": lab_choice}
 
 @app.route('/lab/<lab_id>/search')
 def analysis(lab_id):

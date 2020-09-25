@@ -159,10 +159,17 @@ for i in range(len(duplicados)):
 #Obtengo los memes del body de los comments
 memes = []
 for i in com:
-    if i == [] or "[image]" not in i[0]["body"]:
+    if i == []:
         memes.append("Unknown")
     else:
-        memes.append(((i[0]["body"]).split("[image](")[1]).split(")")[0])
+        search = re.findall(r"https://.*", i[-1]["body"])
+        if search:
+            if ".jpeg" in search[0] or ".png" in search[0] or "jpg" in search[0]:
+                memes.append((search[0]).split(")")[0])
+            else:
+                memes.append("Unknown")
+        else:
+            memes.append("Unknown")
 
 #Creo los que serán los documentos de las pull request y los almaceno en una lista
 pullrq = []

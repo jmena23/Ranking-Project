@@ -14,7 +14,7 @@ Poner en práctica todo lo aprendido en el bootcamp de Data de Ironhack hasta el
 
 # Metodología
 
-- Los datos los obtendremos de las pull requests realizdas por los alumnos al repositorio del bootcamp mediante requests a la API pública de Github.
+- Los datos los obtendremos de las pull requests realizadas por los alumnos al repositorio del bootcamp mediante requests a la API pública de Github.
 - Limpiaremos los datos con la ayuda de python, bs4, regex o cualquier otra herramienta que nos sea útil.
 - Los datos depurados los almacenaremos en Mongodb utilizando pymongo.
 - Configuraremos una API con flask.
@@ -87,7 +87,7 @@ Poner en práctica todo lo aprendido en el bootcamp de Data de Ironhack hasta el
     - Archivo helpers que contiene un decorador para resolver el object_id en el return ya que no es serializable
 
     - Archivo app con la API
-    
+
     - Archivo database con la conexión a la base de datos de Mongodb
 
 - Archivo config con los parámetros de configuración de API y base de datos

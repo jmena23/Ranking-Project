@@ -80,7 +80,15 @@ Poner en práctica todo lo aprendido en el bootcamp de Data de Ironhack hasta el
 
 - Carpeta mongo donde están los scripts para cargar en la base de datos los alumnos y las pull request
 
-- Carpeta scr donde están los controladores de la API, archivo helpers que contiene un decorador para resolver el object_id en el return ya que no es serializable, archivo app con la API y archivo database con la conexión a la base de datos de Mongodb
+- Carpeta scr donde están:
+ 
+    - Los controladores de la API
+
+    - Archivo helpers que contiene un decorador para resolver el object_id en el return ya que no es serializable
+
+    - Archivo app con la API
+    
+    - Archivo database con la conexión a la base de datos de Mongodb
 
 - Archivo config con los parámetros de configuración de API y base de datos
 

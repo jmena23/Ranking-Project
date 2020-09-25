@@ -33,15 +33,18 @@ Poner en práctica todo lo aprendido en el bootcamp de Data de Ironhack hasta el
 
     - L2. Lab endpoints
 
-    (POST) /lab/create
-        Propósito: Crear un lab para analizar.
-        Params: Prefijo del lab a analizar. Ejemplo: [lab-scavengers]
-        Returns: lab_id
-    (GET) /lab/<lab_id>/search
-        Propósito: Realizar el análisis de un lab concreto
-        Parámetro: lab_id
-        Returns: Ver Lab analysis section
-    (GET) /lab/memeranking
-        Propósito: Ranking de los memes más usados en datamad0820 dividido por labs
-    (GET) /lab/<lab_id>/meme
-        Propósito: Obtener un meme random del lab que indicamos en la url.
+        - (POST) /lab/create
+            Propósito: Crear un lab para analizar.
+            Params: Prefijo del lab a analizar. Ejemplo: [lab-scavengers]
+            Returns: lab_id
+
+        - (GET) /lab/<lab_id>/search
+            Propósito: Realizar el análisis de un lab concreto
+            Parámetro: lab_id
+            Returns: Ver Lab analysis section
+
+        - (GET) /lab/memeranking
+            Propósito: Ranking de los memes más usados en datamad0820 dividido por labs
+            
+        - (GET) /lab/<lab_id>/meme
+            Propósito: Obtener un meme random del lab que indicamos en la url.

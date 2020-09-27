@@ -146,7 +146,7 @@ Poner en práctica todo lo aprendido en el bootcamp de Data de Ironhack hasta el
  
     - Los controladores de la API
 
-    - Archivo helpers que contiene un decorador para resolver el object_id en el return ya que no es serializable
+    - Archivo helpers que contiene un decorador para resolver el problema con el object_id en el return ya que no es serializable
 
     - Archivo app con la API
 

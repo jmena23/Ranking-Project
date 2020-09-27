@@ -3,7 +3,7 @@ W6 Project - The Ranking
 
 ![91af7af540ac583d9f76b1ca920e962a](https://user-images.githubusercontent.com/61025562/94283775-590de600-ff49-11ea-84fd-96432e60d690.png)
 
-# Link en producción en Heroku
+# Link Heroku
 
 https://ranking2020.herokuapp.com
 
@@ -38,7 +38,7 @@ Poner en práctica todo lo aprendido en el bootcamp de Data de Ironhack hasta el
 
             Propósito: Listar a los estudiantes en la base de datos
 
-            {"lista de alumnos": ["Diegon8", "gontzalm", "IreneLopezLujan", "PaulaNuno", "rfminguez", "Jav1-Mart1nez", "Daniel-GarciaGarcia", "DiegoCaulonga", "jmena23", "grundius1", "marta-zavala", "Joycelili", "charliesket", "KevsDe", "bmedm", "VanessaMacC", "miguelgimenezgimenez", "AnaMA96", "FDELTA", "jorge-alamillos", "laura290", "silviaherf", "Davidlazarog", "CarlosSanzDGP"]}
+            [{"lista de alumnos": ["Diegon8", "gontzalm", "IreneLopezLujan", "PaulaNuno", "rfminguez", "Jav1-Mart1nez", "Daniel-GarciaGarcia", "DiegoCaulonga", "jmena23", "grundius1", "marta-zavala", "Joycelili", "charliesket", "KevsDe", "bmedm", "VanessaMacC", "miguelgimenezgimenez", "AnaMA96", "FDELTA", "jorge-alamillos", "laura290", "silviaherf", "Davidlazarog", "CarlosSanzDGP"]}]
 
     - L2. Lab endpoints
 

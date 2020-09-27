@@ -45,7 +45,7 @@ Poner en práctica todo lo aprendido en el bootcamp de Data de Ironhack hasta el
         - (POST) /lab/create  -->  /lab/create?lab=[lab-numpy]
 
             Propósito: Obtener un lab de la base de datos para analizar.
-            
+
             ```
             {"Lab_selected": "El lab elegido para su analisis es el siguiente: {'_id': ObjectId('5f6dd98109fbebc92e9b3c62'), 'lab': '[lab-numpy]'}"}
             ```
@@ -54,6 +54,7 @@ Poner en práctica todo lo aprendido en el bootcamp de Data de Ironhack hasta el
 
             Propósito: Realizar el análisis de un lab concreto
 
+            ```
             {
             "missing_pr": [
                 "marta"
@@ -79,12 +80,13 @@ Poner en práctica todo lo aprendido en el bootcamp de Data de Ironhack hasta el
                 "https://user-images.githubusercontent.com/57899051/91295660-b4f31c80-e79b-11ea-9d9a-b4dd95a735bd.png"
                 ]
             }
+            ```
 
         - (GET) /lab/memeranking  -->  /lab/memeranking
 
             Propósito: Ranking de los memes más usados en datamad0820 dividido por labs
 
-            """{
+            ```{
             "0": {
                 "lab": "[lab-advance-querying-mongo]", 
                 "ranking": [
@@ -122,7 +124,7 @@ Poner en práctica todo lo aprendido en el bootcamp de Data de Ironhack hasta el
                 ]
             },
             [...]
-            """
+            ```
 
         - (GET) /lab/<lab_id>/meme  -->  /lab/[lab-numpy]/meme
 

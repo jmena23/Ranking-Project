@@ -146,15 +146,18 @@ Poner en práctica todo lo aprendido en el bootcamp de Data de Ironhack hasta el
  
     - Los controladores de la API
 
-    - Archivo helpers que contiene un decorador para resolver el problema con el object_id en el return ya que no es serializable
+        - alumnos_control.py
+        - pulls_controls.py
 
-    - Archivo app con la API
+    - Carpeta helpers que contiene un decorador para resolver el problema con el object_id en el return ya que no es serializable y una función que nos ayuda a limpiar los títulos de los labs
 
-    - Archivo database con la conexión a la base de datos de Mongodb
+    - Archivo app.py con la API
 
-- Archivo config con los parámetros de configuración de API y base de datos
+    - Archivo database.py con la conexión a la base de datos de Mongodb
 
-- Archivo server ejecutable para arrancar la API desde la terminal
+- Archivo config.py con los parámetros de configuración de API y base de datos
+
+- Archivo server.py ejecutable para arrancar la API desde la terminal
 
 # Enlaces de interés
 

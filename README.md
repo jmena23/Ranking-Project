@@ -24,25 +24,28 @@ Poner en práctica todo lo aprendido en el bootcamp de Data de Ironhack hasta el
 - Configuraremos una API con flask.
 - Crearemos los siguientes endpoints para interactuar desde el navegador con los datos que están en la base de datos en Mongodb:
     - L1. Student endpoints
-        - (GET) /student/create/<studentname>  -->  /student/create/thecoder
+        - (GET) /student/create/<studentname>  -->  ```/student/create/thecoder```
 
             Propósito: Crear un estudiante nuevo e insertarlo en la base de datos
-
+            ```
             {
              "id_": "5f70cec2a6a8b145c33f628e", 
             "msg": "El alumno con usuario de Github thecoder se ha introducido correctamente en la base de datos", 
             "status": "OK"
             }
+            ```
 
-        - (GET) /student/all  -->  /student/all
+        - (GET) /student/all  -->  ```/student/all```
 
             Propósito: Listar a los estudiantes en la base de datos
 
+            ```
             {"lista de alumnos": ["Diegon8", "gontzalm", "IreneLopezLujan", "PaulaNuno", "rfminguez", "Jav1-Mart1nez", "Daniel-GarciaGarcia", "DiegoCaulonga", "jmena23", "grundius1", "marta-zavala", "Joycelili", "charliesket", "KevsDe", "bmedm", "VanessaMacC", "miguelgimenezgimenez", "AnaMA96", "FDELTA", "jorge-alamillos", "laura290", "silviaherf", "Davidlazarog", "CarlosSanzDGP"]}
+            ```
 
     - L2. Lab endpoints
 
-        - (POST) /lab/create  -->  /lab/create?lab=[lab-numpy]
+        - (POST) /lab/create  -->  ```/lab/create?lab=[lab-numpy]```
 
             Propósito: Obtener un lab de la base de datos para analizar.
 
@@ -50,7 +53,7 @@ Poner en práctica todo lo aprendido en el bootcamp de Data de Ironhack hasta el
             {"Lab_selected": "El lab elegido para su analisis es el siguiente: {'_id': ObjectId('5f6dd98109fbebc92e9b3c62'), 'lab': '[lab-numpy]'}"}
             ```
 
-        - (GET) /lab/<lab_id>/search  -->  /lab/[lab-numpy]/search
+        - (GET) /lab/<lab_id>/search  -->  ```/lab/[lab-numpy]/search```
 
             Propósito: Realizar el análisis de un lab concreto
 
@@ -82,7 +85,7 @@ Poner en práctica todo lo aprendido en el bootcamp de Data de Ironhack hasta el
             }
             ```
 
-        - (GET) /lab/memeranking  -->  /lab/memeranking
+        - (GET) /lab/memeranking  -->  ```/lab/memeranking```
 
             Propósito: Ranking de los memes más usados en datamad0820 dividido por labs
 
@@ -126,13 +129,14 @@ Poner en práctica todo lo aprendido en el bootcamp de Data de Ironhack hasta el
             [...]
             ```
 
-        - (GET) /lab/<lab_id>/meme  -->  /lab/[lab-numpy]/meme
+        - (GET) /lab/<lab_id>/meme  -->  ```/lab/[lab-numpy]/meme```
 
             Propósito: Obtener un meme random del lab que indicamos en la url.
-
+            ```
             {
             "meme": "El meme random seleccionado del lab [lab-numpy] es: https://user-images.githubusercontent.com/52798316/91156967-067ca800-e6c5-11ea-9d89-689bcd0778aa.png"
             }
+            ```
 
 # Organización
 

@@ -1,5 +1,4 @@
 # Ranking-Project
-W6 Project - The Ranking
 
 ![91af7af540ac583d9f76b1ca920e962a](https://user-images.githubusercontent.com/61025562/94283775-590de600-ff49-11ea-84fd-96432e60d690.png)
 

@@ -78,7 +78,7 @@ Poner en práctica todo lo aprendido en el bootcamp de Data de Ironhack hasta el
 
             Propósito: Ranking de los memes más usados en datamad0820 dividido por labs
 
-            {
+            """{
             "0": {
                 "lab": "[lab-advance-querying-mongo]", 
                 "ranking": [
@@ -116,6 +116,7 @@ Poner en práctica todo lo aprendido en el bootcamp de Data de Ironhack hasta el
                 ]
             },
             [...]
+            """
 
         - (GET) /lab/<lab_id>/meme  -->  /lab/[lab-numpy]/meme
 

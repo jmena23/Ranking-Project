@@ -38,15 +38,17 @@ Poner en práctica todo lo aprendido en el bootcamp de Data de Ironhack hasta el
 
             Propósito: Listar a los estudiantes en la base de datos
 
-            [{"lista de alumnos": ["Diegon8", "gontzalm", "IreneLopezLujan", "PaulaNuno", "rfminguez", "Jav1-Mart1nez", "Daniel-GarciaGarcia", "DiegoCaulonga", "jmena23", "grundius1", "marta-zavala", "Joycelili", "charliesket", "KevsDe", "bmedm", "VanessaMacC", "miguelgimenezgimenez", "AnaMA96", "FDELTA", "jorge-alamillos", "laura290", "silviaherf", "Davidlazarog", "CarlosSanzDGP"]}]
+            {"lista de alumnos": ["Diegon8", "gontzalm", "IreneLopezLujan", "PaulaNuno", "rfminguez", "Jav1-Mart1nez", "Daniel-GarciaGarcia", "DiegoCaulonga", "jmena23", "grundius1", "marta-zavala", "Joycelili", "charliesket", "KevsDe", "bmedm", "VanessaMacC", "miguelgimenezgimenez", "AnaMA96", "FDELTA", "jorge-alamillos", "laura290", "silviaherf", "Davidlazarog", "CarlosSanzDGP"]}
 
     - L2. Lab endpoints
 
         - (POST) /lab/create  -->  /lab/create?lab=[lab-numpy]
 
             Propósito: Obtener un lab de la base de datos para analizar.
-
+            
+            ```
             {"Lab_selected": "El lab elegido para su analisis es el siguiente: {'_id': ObjectId('5f6dd98109fbebc92e9b3c62'), 'lab': '[lab-numpy]'}"}
+            ```
 
         - (GET) /lab/<lab_id>/search  -->  /lab/[lab-numpy]/search
 

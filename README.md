@@ -147,7 +147,7 @@ Poner en práctica todo lo aprendido en el bootcamp de Data de Ironhack hasta el
     - Los controladores de la API
 
         - alumnos_control.py
-        - pulls_controls.py
+        - pulls_control.py
 
     - Carpeta helpers que contiene un decorador para resolver el problema con el object_id en el return ya que no es serializable y una función que nos ayuda a limpiar los títulos de los labs
 

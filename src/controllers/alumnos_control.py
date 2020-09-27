@@ -3,6 +3,13 @@ from flask import request, Response
 from src.helpers.json_response import asJsonResponse
 from src.database import db
 
+@app.route('/')
+def welcome():
+    return {
+        "status": "OK",
+        "message": "Welcome to miapi"
+    }
+
 @app.route('/student/create/<studentname>')
 def insert_alumno(studentname):
     """

@@ -131,3 +131,5 @@ dmypy.json
 .env
 .ipynb_checkpoints
 __pycache__
+
+dump

@@ -14,7 +14,7 @@ Poner en práctica todo lo aprendido en el bootcamp de Data de Ironhack hasta el
 - Creación de una API usando flask
 - Análisis de los datos extraidos de las pull request del repositorio del bootcamp(datamad0820) mediante requests a la API de Github
 - Usar pymongo para el almacenamiento de los datos en Mongodb
-- Docker, Heroku and Cloud
+- Despliegue de la API en producción mediante Docker, Heroku y Mongo Atlas
 
 # Metodología
 

@@ -5,7 +5,7 @@ from pymongo import MongoClient
 import os 
 from dotenv import load_dotenv
 load_dotenv()
-from helpers.limpia_titulos import contains as lt
+from src.helpers.limpia_titulos import contains as lt
 
 def get_gh_v3(endpoint, apiKey=os.getenv("GITHUB_APIKEY"), query_params={}): 
     """

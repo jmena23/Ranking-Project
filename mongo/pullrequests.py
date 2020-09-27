@@ -5,6 +5,7 @@ from pymongo import MongoClient
 import os 
 from dotenv import load_dotenv
 load_dotenv()
+from helpers.limpia_titulos import contains as lt
 
 def get_gh_v3(endpoint, apiKey=os.getenv("GITHUB_APIKEY"), query_params={}): 
     """
@@ -72,6 +73,7 @@ for i in pulls:
             titulo.append(nombre)
         else:
             titulo.append(" ")
+
 titulos = []
 for i in titulo:
     if "]" in i and i[0] != "[":
@@ -79,38 +81,22 @@ for i in titulo:
     else:
         titulos.append(i.lower())
 
-#NO ME COGÍA BIEN LOS TÍTULOS CON UN DICCIONARIO Y TUVE QUE RECURRIR A LOS ELIF INFINITOS
-#CUANDO TENGA MÁS TIEMPO LO CORREGIRÉ CON EL DICCIONARIO
-
-#errores = {"mongo": '[lab-advance-querying-mongo]', "errhand": '[lab-errhand-listcomp]', "generat": '[lab-generator-functions]', 
-#               "mysql":'[lab-mysql-select]', "parsing": '[lab-parsing-api]', "probability": '[lab-probability-distribution]', 
-#               "resolving": '[lab-resolving-git-conflicts]', "storytelling": '[storytelling-project]', "tuple": '[lab-tuple-set-dict]', 
-#               "web": '[lab-web-scraping]'}
+errores = {"mongo": '[lab-advance-querying-mongo]', "errhand": '[lab-errhand-listcomp]', "generat": '[lab-generator-functions]', 
+           "parsing": '[lab-parsing-api]', "probability": '[lab-probability-distribution]', 
+           "resolving": '[lab-resolving-git-conflicts]', "storytelling": '[storytelling-project]', "tuple": '[lab-tuple-set-dict]', 
+           "web": '[lab-web-scraping]'}
+ttts = []
+for i in titulos:
+    abc = lt.contains(i,errores)
+    ttts.append(abc)
 
 titles = []
-for i in titulos:
-    if "mongo" in i:
-        titles.append('[lab-advance-querying-mongo]')
-    elif "errhand" in i:
-        titles.append('[lab-errhand-listcomp]')
-    elif "generat" in i:
-        titles.append('[lab-generator-functions]')
-    elif "select" in i:
+
+for i in ttts:
+    if "select" in i:
         titles.append('[lab-mysql-select]')
     elif "mysql" in i and "select" not in i:
         titles.append('[lab-mysql]')
-    elif "parsing" in i:
-        titles.append('[lab-parsing-api]')
-    elif "probability" in i:
-        titles.append('[lab-probability-distribution]')
-    elif "resolving" in i:
-        titles.append('[lab-resolving-git-conflicts]')
-    elif "storytelling" in i:
-        titles.append('[storytelling-project]')
-    elif "tuple" in i:
-        titles.append('[lab-tuple-set-dict]')
-    elif "web" in i:
-        titles.append('[lab-web-scraping]')
     else:
         titles.append(i)
 

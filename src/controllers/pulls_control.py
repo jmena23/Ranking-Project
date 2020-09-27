@@ -11,6 +11,11 @@ from collections import Counter
 @app.route('/lab/create')
 @asJsonResponse
 def createlab():
+    """
+    Mediante este endpoint se puede obtener el nombre de un lab en la base de datos para su posterior
+    análisis.
+    """
+
     lab_name = request.args.get("lab")
     if not lab_name:
         return {
@@ -26,10 +31,14 @@ def createlab():
             "message": f"No lab found with name {lab_name} in database"
         }, 404
 
-    return {"lab_name": lab_choice}
+    return {"lab_selected": f"El lab elegido para su analisis es el siguiente: {lab_choice}"}
 
 @app.route('/lab/<lab_id>/search')
 def analysis(lab_id):
+    """
+    Mediante este endpoint se puede obtener una análisis de un lab concreto.
+    Para ello, es necesario especificar en el campo <lab-id> el nombre del lab que se quiere analizar.
+    """
     data = db["pulls"].find({'lab':lab_id}, {"alumnos":1, "estado":1, "last_commit_time":1, "pr_close_time":1, "meme":1})
     b = list(data)
 
@@ -86,6 +95,10 @@ def analysis(lab_id):
 
 @app.route('/lab/memeranking')
 def rankingmeme():
+    """
+    Mediante este endpoint se obtiene un ranking ordenado de los memes utilizados por cada lab.
+    """
+
     a = db["pulls"].distinct("lab")
     a = a[1:]
 
@@ -117,6 +130,9 @@ def rankingmeme():
 
 @app.route('/lab/<lab_id>/meme')
 def randommeme(lab_id):
+    """
+    Mediante este endpoint se obtiene un meme random del lab que se especifique en el campo <lab_id>.
+    """
     data = db["pulls"].find({'lab':lab_id}, {"meme":1})
     b = list(data)
     m = []
@@ -126,5 +142,5 @@ def randommeme(lab_id):
 
     sol = random.choice(m)
     return {
-        'meme' : sol
+        'meme' : f"El meme random seleccionado del lab {lab_id} es: {sol}"
     }

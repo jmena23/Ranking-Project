@@ -39,7 +39,16 @@ def analysis(lab_id):
     Mediante este endpoint se puede obtener una análisis de un lab concreto.
     Para ello, es necesario especificar en el campo <lab-id> el nombre del lab que se quiere analizar.
     """
+    labs = db["pulls"].distinct("lab")
+    
+    if lab_id not in labs:
+        return {
+            "status": "not found",
+            "message": f"No lab found with name {lab_id} in database"
+        }, 404
+        
     data = db["pulls"].find({'lab':lab_id}, {"alumnos":1, "estado":1, "last_commit_time":1, "pr_close_time":1, "meme":1})
+    
     b = list(data)
 
     pr_open = 0
@@ -133,8 +142,17 @@ def randommeme(lab_id):
     """
     Mediante este endpoint se obtiene un meme random del lab que se especifique en el campo <lab_id>.
     """
+    labs = db["pulls"].distinct("lab")
+    
+    if lab_id not in labs:
+        return {
+            "status": "not found",
+            "message": f"No lab found with name {lab_id} in database"
+        }, 404
+
     data = db["pulls"].find({'lab':lab_id}, {"meme":1})
     b = list(data)
+    
     m = []
     for i in b:
         if i['meme'] != "Unknown":
